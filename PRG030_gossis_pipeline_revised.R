@@ -29,10 +29,7 @@ yes_no_list12 <- c(
 for (col in yes_no_list12) {dat[[col]][is.na(dat[[col]])] <- 0}
 dat <- impute_data(dat,algo=3)
 
-# additional step 2-2 (without this process, the performance got worse, overestimate)
-# dat[yes_no_list12] <- lapply(dat[yes_no_list12], 
-#                              function(x) {(recode(x, `1` = 0, `2` = 1))})
-
+# additional step 2-2 
 dat <- prepare_fit(dat)
 
 # additional step 3
